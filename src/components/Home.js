@@ -1,12 +1,18 @@
-import { useRef } from "react";
+import { useRef , useState} from "react";
 import React from "react";
 
-const Home = ({setName}) => {
+const Home = ({setName,name}) => {
     const inputRef = useRef();
+    const [invisible,setInvisible] = useState(true);
 
     const handleClick = () => {
-        setName(inputRef.current.value);
-      
+        setName(inputRef.current.value); 
+        console.log(name);   
+
+        if (inputRef.current.value === "") {
+          setInvisible(false);
+        }
+
     }
     return ( 
         <>
@@ -20,6 +26,7 @@ const Home = ({setName}) => {
         <i className="mx-auto mt-4 rounded-full bg-gray-200 p-2 font-bold">
           ✍️  Aug 12, 2022
         </i>
+
       </div>
 
 
@@ -48,7 +55,9 @@ const Home = ({setName}) => {
           </button>
           
         </div>
+        
       </form>
+      <span className= {invisible ? "hidden" : "text-red-400 text-center flex justify-center"} >Please enter a username ! </span>
       </>
      );
 }
