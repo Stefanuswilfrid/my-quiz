@@ -10,7 +10,7 @@ const Score = ({correctAnswerState,name}) => {
 
     const  getUsers = async () => {
       try {
-        const response = await fetch("http://localhost:3001/leaderboard");
+        const response = await fetch(`${process.env.BACKEND_URL}/leaderboard`);
         const jsonData = await response.json();
   
         setUsers(jsonData);
