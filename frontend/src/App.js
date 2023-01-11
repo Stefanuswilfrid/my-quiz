@@ -4,7 +4,6 @@ import Nav from "./components/Nav";
 import Quiz from "./components/Quiz";
 import { useState , useEffect } from "react";
 import Score from "./components/Score";
-import {BrowserRouter, Routes , Route} from "react-router-dom"
 
 
 function App() {
@@ -243,7 +242,7 @@ function App() {
        { questionNumber < 9 ? (
         <>
         <Nav/> 
-       <Quiz setCorrectAnswer={setCorrectAnswer} questions={questions} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber} correctAnswer={correctAnswer} setCorrectAnswer={setCorrectAnswer}/>  
+       <Quiz setCorrectAnswer={setCorrectAnswer} questions={questions} questionNumber={questionNumber} setQuestionNumber={setQuestionNumber} correctAnswer={correctAnswer} />  
       </>
        ) : (
       <Score correctAnswer={correctAnswer} name={name}/>
