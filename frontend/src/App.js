@@ -18,24 +18,23 @@ function App() {
     localStorage.setItem("count", JSON.stringify(count));
     localStorage.setItem("correctAnswer", JSON.stringify(correctAnswer));
 
-
-
-    console.log("sama", count , "isInt", Number.isInteger(count))
-    console.log("bener gk ",questionNumber>8 &&   count === 0)
     if (questionNumber>8 &&   count === 0 ) {
       const postScore = async () => {
         try {
           const body = {name,correctAnswer};
-          const response = await fetch(process.env.BACKEND_URL, {
+          console.log(body)
+
+          const response = await fetch("http://localhost:3001/", {
               method: "POST",
               headers : { "Content-Type": "application/json" },
               body: JSON.stringify(body)
           });  
           localStorage.setItem('count', JSON.stringify(count+1));
-
+          console.log("post frontend")
           setCount(count+1)
          
       } catch (err) {
+          console.log("ss")
           console.log(err.message)
           
       }
@@ -50,7 +49,7 @@ function App() {
   const questions = [
     {
       id: 1,
-      question: "Last movie i watched ? ",
+      question: "Last movie i watched ? (10 August 2022) ",
       answers: [
         {
           text: "Thor",

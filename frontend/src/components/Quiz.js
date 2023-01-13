@@ -23,8 +23,7 @@ const Quiz = ({ questions, questionNumber ,setQuestionNumber,setCorrectAnswer,co
 
 
       delay(3000, () => {
-        console.log("a.correct :" + a.correct);
-        console.log(answerStyle);
+     
       if (a.correct) {
         
         setDisplayText("Correct Answer !");
@@ -62,12 +61,6 @@ const Quiz = ({ questions, questionNumber ,setQuestionNumber,setCorrectAnswer,co
   }, [questions, questionNumber]);
 
   return (
-    // <div className="quiz">
-    //     <div className="question">
-    //         {displayQuestion?.question}
-    //     </div>
-
-    // </div>
     <>
       <div class="flex flex-wrap mt-16 ">
         <div class="w-full sm:w-3/4 md:w-3/4 flex flex-col p-3 mx-auto">

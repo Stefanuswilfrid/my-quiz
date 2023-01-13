@@ -24,12 +24,13 @@ app.post("/", async (req,res)=> {
         res.json(savedUser);
     } catch (err) {
         res.json({message: err})
+        console.log("salah save",err)
     }
 })
 
 app.get("/leaderboard", async(req,res) => {
     try {
-        const users = await User.find();
+        const users = await User.find().sort({Score:-1});
         console.log("test")
         res.json(users)
         
@@ -41,8 +42,10 @@ app.get("/leaderboard", async(req,res) => {
     
 })
 
+const PORT = process.env.PORT || 3001;
+
 //connect to db
 mongoose.connect(process.env.DB_CONNECTION,{useNewUrlParser: true})
-    .then(result => app.listen(3001))
+    .then(result => app.listen(PORT))
     .catch(err => console.log(err));
 
