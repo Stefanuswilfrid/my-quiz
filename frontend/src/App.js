@@ -22,7 +22,7 @@ function App() {
       const postScore = async () => {
         try {
           const body = {name,correctAnswer};
-          console.log(body)
+          //console.log(body)
 
           const response = await fetch("http://localhost:3001/", {
               method: "POST",
@@ -30,12 +30,12 @@ function App() {
               body: JSON.stringify(body)
           });  
           localStorage.setItem('count', JSON.stringify(count+1));
-          console.log("post frontend")
+          //console.log("post frontend")
           setCount(count+1)
          
       } catch (err) {
-          console.log("ss")
-          console.log(err.message)
+          //console.log("ss")
+          //console.log(err.message)
           
       }
       };postScore()
